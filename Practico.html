@@ -2,9 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bhaskara</title>
+    <meta content="Miron Juan Pablo" name="author">
+    <meta content="Calculadora de ecuaciones de segundo grado." name="description">
+    <meta content="Bhaskara, raíces, parábola, cálculo, sistema de ecuaciones" name="keywords">
+    <link rel="stylesheet" href="Estilo.css" type="text/css">
+    <link rel="shortcut icon" href="Imagenes/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:ital,wght@1,200&display=swap"
+          rel="stylesheet">
 </head>
 <body>
+
+<header>
+    <h1 class="titulo_principal">Bhaskara</h1>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    /
+    <a href="Teorico.html">Teórico</a>
+    /
+    <a href="Practico.html">Práctico</a>
+    /
+    <a href="Contacto.html">Contacto</a>
+</nav>
+
+<div>
+    <form id="raices">
+        <input type="number" name="Raiz cuadratica." id="cuadratica">
+        <label for="cuadratica">X<sup>2</sup>+</label>
+        <input type="number" name="Raiz lineal." id="lineal">
+        <label for="lineal">X+</label>
+        <input type="number" name="Constante." id="constante">
+        <label for="constante"></label>
+    </form>
+    <canvas id="graficadora" width="500" height="350">
+        Tu navegador no soporta el lienzo canvas.
+    </canvas>
+</div>
+
+<aside id="frasebhaskara">
+    <p><i>Frase de Bhaskara:</i></p>
+    <p>"La raíz cuadrada de la mitad del número de abejas en un enjambre
+        ha volado hasta la planta de jazmín.
+        Ocho novenos del enjambre atrás quedaron.
+        Una abeja vuela junto a su compañero quien zumba dentro de la flor de loto;
+        en la noche, atraído por el dulce aroma de la flor, voló a su interior
+        ¡y ahora está atrapado!
+        Dime, encantadora dama, el número de abejas en el enjambre."</p>
+</aside>
+
+<footer>
+    &#169 Copyright 2022.
+</footer>
 
 </body>
 </html>
