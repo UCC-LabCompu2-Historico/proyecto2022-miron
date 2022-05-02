@@ -5,11 +5,10 @@
     text-align: center;
     background: #916b38;
     padding: 20px;
-    margin: 0px;
 }
 
 nav{
-    font-family: 'Calibri';
+    font-family: 'Calibri', sans-serif;
     font-size: 25px;
     text-align: center;
     border-color: black;
@@ -18,27 +17,37 @@ nav{
     color: #033891;
 }
 
-nav:link{
+a:link{
     color: #033891;
 }
 
-nav:visited{
+a:visited{
     color: #033891;
 }
 
-nav:hover{
+a:hover{
     font-size: 30px;
+    color: black;
+    font-weight: bold;
 }
 
-nav:active{
+a:active{
     color: white;
     font-weight: bold;
     background: #d6b041;
 }
 
 #graficadora{
-    border-style: solid;
+    border-style: inset;
+    border-width: thick;
+    border-color: #ffc700;
     margin: 20px;
+    width: 500px;
+    height: 350px;
+}
+
+#grafico{
+    text-align: center;
 }
 
 footer{
@@ -56,6 +65,7 @@ div{
 #infocontacto{
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
+    margin: 20px;
 }
 
 #frasebhaskara{
@@ -68,4 +78,89 @@ div{
     font-family: 'Lato', sans-serif;
     font-size: 1em;
     text-align: center;
+    padding: 10px;
+}
+
+img{
+    margin: 10px;
+}
+
+.facebook:link{
+    color: #3439d6;
+}
+
+.facebook:visited{
+    color: #3439d6;
+}
+
+.facebook:hover{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.facebook:active{
+    background: blue;
+    color: white;
+}
+
+.instagram:link{
+    color: #3439d6;
+}
+
+.instagram:visited{
+    color: #3439d6;
+}
+
+.instagram:hover{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.instagram:active{
+    background: #fc7ac7;
+    color: white;
+}
+
+.github:link{
+    color: #3439d6;
+}
+
+.github:visited{
+    color: #3439d6;
+}
+
+.github:hover{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.github:active{
+    background: black;
+    color: white;
+}
+
+#redes{
+    border-style: ridge;
+    border-color: #916b38;
+    border-width: thick;
+}
+#fotoinicio{
+    text-align: center;
+}
+
+#tituloteorico1{
+    text-align: center;
+}
+
+#tituloteorico2{
+    text-align: center;
+}
+
+#tituloteorico3{
+    text-align: center;
+}
+
+.pestañacontacto{
+    display: grid;
+    grid-template-columns: auto auto;
 }
