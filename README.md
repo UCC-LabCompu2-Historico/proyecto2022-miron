@@ -3,7 +3,8 @@ Este proyecto calcula las raíces de un polinomio de segundo grado y lo grafica.
 
 **Autor**: Miron Juan Pablo.
 
-Contenido de la página: el propósito de esta página web es poder graficar un polinomio de segundo grado introducido por el usuario y poder calcular sus raíces, empleando la fórmula de "Bhaskara".
+*Contenido de la página:* 
+el propósito de esta página web es poder graficar un polinomio de segundo grado introducido por el usuario y poder calcular sus raíces, empleando la fórmula de "Bhaskara".
 
 *Listado de tecnologías:*
 - HTML.
