@@ -1,4 +1,4 @@
-.titulo_principal{
+.titulo_principal {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
     color: #ffffff;
@@ -7,7 +7,7 @@
     padding: 20px;
 }
 
-nav{
+nav {
     font-family: 'Calibri', sans-serif;
     font-size: 25px;
     text-align: center;
@@ -17,27 +17,27 @@ nav{
     color: #033891;
 }
 
-a:link{
+a:link {
     color: #033891;
 }
 
-a:visited{
+a:visited {
     color: #033891;
 }
 
-a:hover{
+a:hover {
     font-size: 30px;
     color: black;
     font-weight: bold;
 }
 
-a:active{
+a:active {
     color: white;
     font-weight: bold;
     background: #d6b041;
 }
 
-#graficadora{
+#graficadora {
     border-style: inset;
     border-width: thick;
     border-color: #ffc700;
@@ -46,121 +46,151 @@ a:active{
     height: 350px;
 }
 
-#grafico{
+#grafico {
     text-align: center;
 }
 
-footer{
+footer {
     font-family: 'Lato', sans-serif;
     font-weight: bolder;
 }
 
-div{
+div {
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
     text-align: justify-all;
-    margin: 20px;
+    margin: 20px 100px;
 }
 
-#infocontacto{
+#infocontacto {
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
-    margin: 20px;
+    margin: 20px 50px;
 }
 
-#frasebhaskara{
+#frasebhaskara {
     font-family: 'Lato', sans-serif;
     font-size: 1em;
     text-align: justify-all;
 }
 
-#redes{
+#redes {
     font-family: 'Lato', sans-serif;
     font-size: 1em;
     text-align: center;
-    padding: 10px;
+    padding: 50px;
 }
 
-img{
+img {
     margin: 10px;
 }
 
-.facebook:link{
+.facebook:link {
     color: #3439d6;
 }
 
-.facebook:visited{
+.facebook:visited {
     color: #3439d6;
 }
 
-.facebook:hover{
+.facebook:hover {
     font-weight: bold;
     font-size: 25px;
 }
 
-.facebook:active{
+.facebook:active {
     background: blue;
     color: white;
 }
 
-.instagram:link{
+.instagram:link {
     color: #3439d6;
 }
 
-.instagram:visited{
+.instagram:visited {
     color: #3439d6;
 }
 
-.instagram:hover{
+.instagram:hover {
     font-weight: bold;
     font-size: 25px;
 }
 
-.instagram:active{
+.instagram:active {
     background: #fc7ac7;
     color: white;
 }
 
-.github:link{
+.github:link {
     color: #3439d6;
 }
 
-.github:visited{
+.github:visited {
     color: #3439d6;
 }
 
-.github:hover{
+.github:hover {
     font-weight: bold;
     font-size: 25px;
 }
 
-.github:active{
+.github:active {
     background: black;
     color: white;
 }
 
-#redes{
+#redes {
     border-style: ridge;
     border-color: #916b38;
-    border-width: thick;
+    border-width: 10px 10px;
 }
-#fotoinicio{
+
+#fotoinicio {
     text-align: center;
 }
 
-#tituloteorico1{
+#tituloteorico1 {
     text-align: center;
+    font-size: 1.4em;
+
 }
 
-#tituloteorico2{
+#tituloteorico2 {
     text-align: center;
+    font-size: 1.4em;
 }
 
-#tituloteorico3{
+#tituloteorico3 {
     text-align: center;
+    font-size: 1.4em;
 }
 
-.pestañacontacto{
+.pestañacontacto {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 80% auto;
+}
+
+#ejercicio1ejemplocomp {
+    display: grid;
+    column-count: auto;
+}
+
+#ejercicio2ejemplocomp {
+    display: grid;
+    column-count: auto;
+}
+
+#ejecicio3ejemplocomp {
+    display: grid;
+    column-count: auto;
+}
+
+#frasebhaskara {
+    border-style: dashed;
+    border-width: medium;
+    border-color: #562613;
+    padding: 20px;
+    position: absolute;
+    bottom: 300px;
+    left: 1350px;
 }
