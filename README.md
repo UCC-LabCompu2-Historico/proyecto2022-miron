@@ -1,9 +1,10 @@
 # Bhaskara
-Este proyecto calcula las raíces de un polinomio de segundo grado y lo grafica.
 
 **Autor**: Miron Juan Pablo.
 
 **Carrera**: Ingeniería en Sistemas.
+
+[Página principal de Bhaskara](https://ucc-labcompu2.github.io/proyecto2022-miron-1/)
 
 *Contenido de la página:* 
 el propósito de esta página web es poder graficar un polinomio de segundo grado introducido por el usuario y poder calcular sus raíces, empleando la fórmula de "Bhaskara".
@@ -17,7 +18,7 @@ el propósito de esta página web es poder graficar un polinomio de segundo grad
 | 2100815@ucc.edu.ar |
 | 297-6252193        |
 
-[Página principal de Bhaskara](https://ucc-labcompu2.github.io/proyecto2022-miron-1/)
+
 
 
 # proyecto2022
