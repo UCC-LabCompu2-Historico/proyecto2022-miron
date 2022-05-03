@@ -7,7 +7,7 @@ Listado de tecnologías:
 -HTML.
 -CSS.
 
-[Pagina principal de Bhaskara](https://github.com/UCC-LabCompu2/proyecto2022-miron-1/blob/main/index.html)
+[Pagina principal de Bhaskara](https://ucc-labcompu2.github.io/proyecto2022-miron-1/)
 
 
 # proyecto2022
