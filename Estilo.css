@@ -19,6 +19,7 @@ nav {
 
 a:link {
     color: #033891;
+    text-decoration: none;
 }
 
 a:visited {
@@ -96,6 +97,7 @@ img {
 
 .facebook:link {
     color: #3439d6;
+    text-decoration: none;
 }
 
 .facebook:visited {
@@ -104,7 +106,7 @@ img {
 
 .facebook:hover {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .facebook:active {
@@ -114,6 +116,7 @@ img {
 
 .instagram:link {
     color: #3439d6;
+    text-decoration: none;
 }
 
 .instagram:visited {
@@ -122,16 +125,17 @@ img {
 
 .instagram:hover {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .instagram:active {
-    background: #fc7ac7;
-    color: white;
+    background: hotpink;
+    color: yellow;
 }
 
 .github:link {
     color: #3439d6;
+    text-decoration: none;
 }
 
 .github:visited {
@@ -140,7 +144,7 @@ img {
 
 .github:hover {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .github:active {
@@ -170,7 +174,7 @@ img {
 
 .pestañacontacto {
     display: grid;
-    grid-template-columns: 80% auto;
+    grid-template-columns: 78% auto;
 }
 
 #ejercicio1ejemplocomp {
