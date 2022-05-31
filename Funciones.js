@@ -1,7 +1,7 @@
 /**
  * Función que comprueba los valores ingresados por el usuario.
  * @method Comprobar.
- * @return Ante cualquier error, retorna un mensaje de alerta para el usuario y deja los campos en blanco.
+ * @return Ante cualquier error, retorna un mensaje de alerta para el usuario y deja los campos en blanco. Si no hay error, ejecuta la función de cálculo de raíces.
  */
 function Comprobar() {
     let a, b, c, x1, x2;
