@@ -40,11 +40,9 @@ a:active {
 
 #graficadora {
     border-style: inset;
-    border-width: thick;
+    border-width: medium;
     border-color: #ffc700;
     margin: 20px;
-    width: 500px;
-    height: 350px;
 }
 
 #grafico {

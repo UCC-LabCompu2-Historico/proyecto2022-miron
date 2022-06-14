@@ -18,7 +18,7 @@
     <script src="Funciones.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onload="dibujarcuadriculado()">
 
 <header>
     <h1 class="titulo_principal">Bhaskara</h1>
@@ -47,7 +47,7 @@
             <button type="button" name="Botón para calcular" id="calcular" onclick="Comprobar()">Calcular</button>
         </form>
 
-        <canvas id="graficadora">
+        <canvas id="graficadora" width="600px" height="400px">
             Tu navegador no soporta el lienzo canvas.
         </canvas>
     </div>
