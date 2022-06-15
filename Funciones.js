@@ -1,11 +1,12 @@
 /**
  * Función que comprueba los valores ingresados por el usuario.
  * @method Comprobar.
- * @return Ante cualquier error, retorna un mensaje de alerta para el usuario y deja los campos en blanco. Si no hay error, ejecuta la función de cálculo de raíces.
+ * @return Ante cualquier error, retorna un mensaje de alerta para el usuario, deja los campos en blanco y limpia el canvas. Si no hay error, ejecuta la función de cálculo de raíces y gráfica de funciones.
  */
 function Comprobar() {
     let a, b, c, x1, x2;
     let flag = true;
+    let canvas = document.getElementById("graficadora");
     a = document.getElementById("cuadratica").value;
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
@@ -25,22 +26,30 @@ function Comprobar() {
     if (isNaN(a) || isNaN(b) || isNaN(c)) {
         alert("Al menos uno de los términos ingresados no corresponde a un valor numérico.");
         flag = false;
+        canvas.width = canvas.width;
+        dibujarcuadriculado();
     } else {
         if (a == "" || b == "" || c == "") {
             alert("No puede quedar en blanco ningún campo a ingresar.");
             flag = false;
+            canvas.width = canvas.width;
+            dibujarcuadriculado();
         } else {
-            if (a == "0" && b == "0" && c == "0") {
-                alert("Los 3 valores ingresados no pueden ser 0.");
+            if (a > 9 || b > 9 || c > 9 || a < -9 || b < -9 || c < -9) {
+                alert("Ingrese un valor entre -10 y 10 para cada campo.");
                 flag = false;
-            } else{
+                canvas.width = canvas.width;
+                dibujarcuadriculado();
+            } else {
                 Raices();
-                dibujarfuncion(x1, x2);
+                canvas.width = canvas.width;
+                dibujarcuadriculado();
+                dibujarfuncion();
             }
         }
     }
 
-    if (flag == false){
+    if (flag == false) {
         document.getElementById("cuadratica").value = "";
         document.getElementById("lineal").value = "";
         document.getElementById("constante").value = "";
@@ -62,30 +71,31 @@ function Raices() {
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
 
-    if (a == 0 && b == 0 && c != 0) {
-       if (c==0){
-           x1 = "Todos los reales.";
-           x2 = " - ";
-       }else{
-           x1 = " - ";
-           x2 = " - ";
-       }
+    if (a == 0 && b == 0 && c == 0) {
+        x1 = "Todos los reales.";
+        x2 = " - ";
     } else {
-        if (a == 0 && b != 0 && (c == 0 || c != 0)) {
-            x1 = Math.round(-c / b * 100) / 100;
+        if (a == 0 && b == 0 && c != 0) {
+            x1 = " - ";
             x2 = " - ";
         } else {
-            let det;
-            det = b * b - 4 * a * c;
-            if (det < 0) {
-                x1 = "Raíces complejas.";
-                x2 = "Raíces complejas.";
+            if (a == 0 && b != 0 && (c == 0 || c != 0)) {
+                x1 = Math.round(-c / b * 100) / 100;
+                x2 = " - ";
             } else {
-                x1 = Math.round((-b + Math.sqrt(det)) / (2 * a) * 100) / 100;
-                x2 = Math.round((-b - Math.sqrt(det)) / (2 * a) * 100) / 100;
+                let det;
+                det = b * b - 4 * a * c;
+                if (det < 0) {
+                    x1 = "Raíces complejas.";
+                    x2 = "Raíces complejas.";
+                } else {
+                    x1 = Math.round((-b + Math.sqrt(det)) / (2 * a) * 100) / 100;
+                    x2 = Math.round((-b - Math.sqrt(det)) / (2 * a) * 100) / 100;
+                }
             }
         }
     }
+
     document.getElementById("cuadratica").value = a;
     document.getElementById("lineal").value = b;
     document.getElementById("constante").value = c;
@@ -93,7 +103,12 @@ function Raices() {
     document.getElementById("raiz2").innerHTML = x2;
 }
 
-function dibujarcuadriculado(){
+/**
+ * Función que grafica el cuadriculado de la calculadora.
+ * @method dibujarcuadriculado.
+ * @return dibuja el cuadriculado sobre el canvas respetando una separación de 20 píxeles, junto con el nombre de los ejes y los valores de los mismos.
+ */
+function dibujarcuadriculado() {
     let canvas = document.getElementById("graficadora");
     let ctx = canvas.getContext("2d");
     let cont = -14;
@@ -101,99 +116,101 @@ function dibujarcuadriculado(){
     let Anchomax = canvas.width;
     let Alturamax = canvas.height;
 
-    canvas.width = canvas.width;
-
     //Lineas horizontales.
 
-    for (let i=20; i<Alturamax;){
+    for (let i = 20; i < Alturamax;) {
         ctx.beginPath();
         ctx.moveTo(0, i);
         ctx.lineTo(Anchomax, i);
         ctx.strokeStyle = "#000000";
         ctx.stroke();
         ctx.closePath();
-        i=i+20;
+        i = i + 20;
     }
 
     //Lineas verticales.
 
-    for (let i=20; i<Anchomax;){
+    for (let i = 20; i < Anchomax;) {
         ctx.beginPath();
         ctx.moveTo(i, 0);
         ctx.lineTo(i, Alturamax);
         ctx.strokeStyle = "#000000";
         ctx.stroke();
         ctx.closePath();
-        i=i+20;
+        i = i + 20;
     }
 
     //Eje X.
     ctx.beginPath();
-    ctx.moveTo(0, Alturamax/2);
-    ctx.lineTo(Anchomax, Alturamax/2);
+    ctx.moveTo(0, Alturamax / 2);
+    ctx.lineTo(Anchomax, Alturamax / 2);
     ctx.strokeStyle = "#0c3306";
     ctx.stroke();
     ctx.closePath();
 
     //Numeros Eje X.
-    for (let i=20;i<Anchomax;){
+    for (let i = 20; i < Anchomax;) {
         ctx.beginPath();
-        if (cont !=0){
+        if (cont != 0) {
             ctx.font = "8pt Arial";
             ctx.fillStyle = "black";
-            ctx.fillText(String(cont), i-3, Alturamax/2+15);
+            ctx.fillText(String(cont), i - 3, Alturamax / 2 + 15);
             ctx.closePath();
         }
-        i=i+20;
-        cont=cont+1;
+        i = i + 20;
+        cont = cont + 1;
     }
     cont = 9;
 
     //Eje Y.
     ctx.beginPath();
-    ctx.moveTo(Anchomax/2, 0);
-    ctx.lineTo(Anchomax/2, Alturamax);
+    ctx.moveTo(Anchomax / 2, 0);
+    ctx.lineTo(Anchomax / 2, Alturamax);
     ctx.strokeStyle = "#0c3306";
     ctx.stroke();
     ctx.closePath();
 
     //Numeros Eje Y.
-    for (let i=20;i<Alturamax;){
-        if (cont!=0){
+    for (let i = 20; i < Alturamax;) {
+        if (cont != 0) {
             ctx.beginPath();
             ctx.font = "8pt Arial";
             ctx.fillStyle = "black";
-            ctx.fillText(String(cont), Anchomax/2-15, i+3);
+            ctx.fillText(String(cont), Anchomax / 2 - 15, i + 3);
             ctx.closePath();
         }
-        i=i+20;
-        cont=cont-1;
+        i = i + 20;
+        cont = cont - 1;
     }
 
     //Palabra "Eje X."
     ctx.beginPath();
-    ctx.font="9pt Verdana";
-    ctx.fillStyle="blue";
-    ctx.fillText("Eje X.", Anchomax-39, Alturamax/2-7);
+    ctx.font = "9pt Verdana";
+    ctx.fillStyle = "blue";
+    ctx.fillText("Eje X.", Anchomax - 39, Alturamax / 2 - 7);
     ctx.closePath();
 
     //Palabra "Eje Y."
     ctx.beginPath();
-    ctx.font="9pt Verdana";
-    ctx.fillStyle="blue";
-    ctx.fillText("Eje Y.", Anchomax/2+1, 15);
+    ctx.font = "9pt Verdana";
+    ctx.fillStyle = "blue";
+    ctx.fillText("Eje Y.", Anchomax / 2 + 1, 15);
     ctx.closePath();
 
 }
 
-function dibujarfuncion(x1, x2){
-    let a, b, c, x;
+/**
+ * Función que grafica exclusivamente las funciones.
+ * @method dibujarfuncion.
+ * @return grafica la función dependiendo de los datos que se ingresan. Si se le pasa solo el valor de c, grafica el valor de y constante, pero si le pasamos valores b y c nos grafica una función lineal. Por último, si pasamos valores a, b y c nos grafica una parábola.
+ */
+function dibujarfuncion() {
+    let a, b, c, y1, y2;
     let canvas = document.getElementById("graficadora");
     let ctx = canvas.getContext("2d");
     a = document.getElementById("cuadratica").value;
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
-    let det = b * b - 4 * a * c;
 
     let Anchomax = canvas.width;
     let Alturamax = canvas.height;
@@ -202,37 +219,34 @@ function dibujarfuncion(x1, x2){
         ctx.beginPath();
         ctx.moveTo(0, (Alturamax / 2) - 20 * c);
         ctx.lineTo(Anchomax, (Alturamax / 2) - 20 * c);
+        ctx.lineWidth = 1.5;
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
         ctx.closePath();
     } else {
         if (a == 0 && b != 0 && (c != 0 || c == 0)) {
             ctx.beginPath();
-            ctx.moveTo(((-10-c)/b)*20+Anchomax/2, Alturamax);
-            ctx.lineTo(((10-c)/b)*20+Anchomax/2, 0);
+            ctx.moveTo(((-10 - c) / b) * 20 + Anchomax / 2, Alturamax);
+            ctx.lineTo(((10 - c) / b) * 20 + Anchomax / 2, 0);
+            ctx.lineWidth = 1.5;
             ctx.strokeStyle = "#ff0000";
             ctx.stroke();
             ctx.closePath();
-        } else{
-            if (a != 0 && (b == 0 || b != 0) || (c == 0 || c != 0)){
-                ctx.beginPath();
-                for (let x = -15 ; x <= 15 ;)
-                {
-                    let y = a*(x^2)+b*x+c;
+        } else {
+            if (a != 0 && (b == 0 || b != 0) || (c == 0 || c != 0)) {
+                for (let i = -16; i <= 16;) {
+                    y1 = (a * Math.pow(i, 2) + b * (i) + c);
+                    y2 = (a * Math.pow(i + 0.1, 2) + b * (i + 0.1) + c);
                     ctx.beginPath();
-                    ctx.lineTo(Anchomax/2+(20*x), Alturamax/2-(20*y));
+                    ctx.moveTo(Anchomax / 2 + (20 * i), Alturamax / 2 - (20 * y1))
+                    ctx.lineTo(Anchomax / 2 + (20 * (i + 0.1)), Alturamax / 2 - (20 * y2));
+                    ctx.lineWidth = 1.5;
                     ctx.strokeStyle = "#ff0000";
                     ctx.stroke();
-                    x = x+0.1;
+                    ctx.closePath();
+                    i = (i + 0.1);
                 }
-                ctx.closePath();
             }
         }
     }
 }
-
-/*
-x = -10
-y =
-
- */
