@@ -38,7 +38,12 @@ a:active {
     background: #d6b041;
 }
 
+#formularioygrafico {
+    text-align: center;
+}
+
 #graficadora {
+    text-align: center;
     border-style: inset;
     border-width: medium;
     border-color: #ffc700;
@@ -46,9 +51,8 @@ a:active {
 }
 
 #grafico {
-    text-align: center;
     display: grid;
-    grid-template-columns: 75% auto;
+    grid-template-columns: 78% auto;
 }
 
 footer {

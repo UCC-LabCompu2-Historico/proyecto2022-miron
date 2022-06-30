@@ -35,7 +35,7 @@ function Comprobar() {
             canvas.width = canvas.width;
             dibujarcuadriculado();
         } else {
-            if (a > 9 || b > 9 || c > 9 || a < -9 || b < -9 || c < -9) {
+            if (a > 10 || b > 10 || c > 10 || a < -10 || b < -10 || c < -10) {
                 alert("Ingrese un valor entre -10 y 10 para cada campo.");
                 flag = false;
                 canvas.width = canvas.width;
@@ -50,11 +50,7 @@ function Comprobar() {
     }
 
     if (flag == false) {
-        document.getElementById("cuadratica").value = "";
-        document.getElementById("lineal").value = "";
-        document.getElementById("constante").value = "";
-        document.getElementById("raiz1").innerHTML = "";
-        document.getElementById("raiz2").innerHTML = "";
+        blanquearCampo();
     }
 }
 
@@ -249,4 +245,29 @@ function dibujarfuncion() {
             }
         }
     }
+}
+
+/**
+ * Función que blanquea los campos incorrectos.
+ * @method blanquearCampo.
+ * @return al introducirse un valor para a, b o c, si alguno de ellos es incorrecto, lo blanquea, y en caso contrario, lo deja como estaba.
+ */
+function blanquearCampo(){
+    let a, b, c;
+    a = document.getElementById("cuadratica").value;
+    b = document.getElementById("lineal").value;
+    c = document.getElementById("constante").value;
+
+    if (isNaN(a) || a=="" || a > 10 || a < -10){
+        document.getElementById("cuadratica").value = "";
+    }
+    if (isNaN(b) || b == "" || b > 10 || b < -10){
+        document.getElementById("lineal").value = "";
+    }
+    if (isNaN(c) || c == "" || c > 10 || c < -10){
+        document.getElementById("constante").value = "";
+    }
+
+    document.getElementById("raiz1").value = "";
+    document.getElementById("raiz2").value = "";
 }
