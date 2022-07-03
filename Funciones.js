@@ -57,7 +57,7 @@ function Comprobar() {
  */
 function Raices() {
     let a, b, c;
-    var x1, x2;
+    let x1, x2;
     a = document.getElementById("cuadratica").value;
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
