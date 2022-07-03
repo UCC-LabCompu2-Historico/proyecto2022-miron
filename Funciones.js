@@ -202,37 +202,38 @@ function dibujarcuadriculado() {
  */
 function dibujarfuncion() {
     let a, b, c, y1, y2;
+    let i = -15;
     let canvas = document.getElementById("graficadora");
     let ctx = canvas.getContext("2d");
-    a = document.getElementById("cuadratica").value;
-    b = document.getElementById("lineal").value;
-    c = document.getElementById("constante").value;
+    a = Number(document.getElementById("cuadratica").value);
+    b = Number(document.getElementById("lineal").value);
+    c = Number(document.getElementById("constante").value);
 
     let Anchomax = canvas.width;
     let Alturamax = canvas.height;
 
     if (a == 0 && b == 0 && c != 0) {
-        ctx.beginPath();
-        ctx.moveTo(0, (Alturamax / 2) - 20 * c);
-        ctx.lineTo(Anchomax, (Alturamax / 2) - 20 * c);
-        ctx.lineWidth = 1.5;
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        ctx.closePath();
+        setInterval(function () {
+            if (i <= 14.9) {
+                y1 = Math.round((c) * 100) / 100;
+                ctx.beginPath();
+                ctx.moveTo(Anchomax / 2 + (20 * i), (Alturamax / 2) - (20 * y1));
+                ctx.lineTo(Anchomax / 2 + (20 * (i + 0.1)), (Alturamax / 2) - (20 * y1));
+                ctx.lineWidth = 1.5;
+                ctx.strokeStyle = "#ff0000";
+                ctx.stroke();
+                ctx.closePath();
+                i = Math.round((i + 0.1) * 100) / 100;
+            } else {
+                clearInterval();
+            }
+        }, 5)
     } else {
         if (a == 0 && b != 0 && (c != 0 || c == 0)) {
-            ctx.beginPath();
-            ctx.moveTo(((-10 - c) / b) * 20 + Anchomax / 2, Alturamax);
-            ctx.lineTo(((10 - c) / b) * 20 + Anchomax / 2, 0);
-            ctx.lineWidth = 1.5;
-            ctx.strokeStyle = "#ff0000";
-            ctx.stroke();
-            ctx.closePath();
-        } else {
-            if (a != 0 && (b == 0 || b != 0) || (c == 0 || c != 0)) {
-                for (let i = -16; i <= 16;) {
-                    y1 = (a * Math.pow(i, 2) + b * (i) + c);
-                    y2 = (a * Math.pow(i + 0.1, 2) + b * (i + 0.1) + c);
+            setInterval(function () {
+                if (i <= 14.9) {
+                    y1 = Math.round((b * (i) + c) * 100) / 100;
+                    y2 = Math.round((b * (i + 0.1) + c) * 100) / 100;
                     ctx.beginPath();
                     ctx.moveTo(Anchomax / 2 + (20 * i), Alturamax / 2 - (20 * y1))
                     ctx.lineTo(Anchomax / 2 + (20 * (i + 0.1)), Alturamax / 2 - (20 * y2));
@@ -240,8 +241,29 @@ function dibujarfuncion() {
                     ctx.strokeStyle = "#ff0000";
                     ctx.stroke();
                     ctx.closePath();
-                    i = (i + 0.1);
+                    i = Math.round((i + 0.1) * 100) / 100;
+                } else {
+                    clearInterval();
                 }
+            }, 5)
+        } else {
+            if (a != 0 && (b == 0 || b != 0) || (c == 0 || c != 0)) {
+                setInterval(function () {
+                    if (i <= 14.9) {
+                        y1 = Math.round((a * Math.pow(i, 2) + b * (i) + c) * 100) / 100;
+                        y2 = Math.round((a * Math.pow(i + 0.1, 2) + b * (i + 0.1) + c) * 100) / 100;
+                        ctx.beginPath();
+                        ctx.moveTo(Anchomax / 2 + (20 * i), Alturamax / 2 - (20 * y1))
+                        ctx.lineTo(Anchomax / 2 + (20 * (i + 0.1)), Alturamax / 2 - (20 * y2));
+                        ctx.lineWidth = 1.5;
+                        ctx.strokeStyle = "#ff0000";
+                        ctx.stroke();
+                        ctx.closePath();
+                        i = Math.round((i + 0.1) * 100) / 100;
+                    } else {
+                        clearInterval();
+                    }
+                }, 5)
             }
         }
     }
@@ -252,19 +274,19 @@ function dibujarfuncion() {
  * @method blanquearCampo.
  * @return al introducirse un valor para a, b o c, si alguno de ellos es incorrecto, lo blanquea, y en caso contrario, lo deja como estaba.
  */
-function blanquearCampo(){
+function blanquearCampo() {
     let a, b, c;
     a = document.getElementById("cuadratica").value;
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
 
-    if (isNaN(a) || a=="" || a > 10 || a < -10){
+    if (isNaN(a) || a == "" || a > 10 || a < -10) {
         document.getElementById("cuadratica").value = "";
     }
-    if (isNaN(b) || b == "" || b > 10 || b < -10){
+    if (isNaN(b) || b == "" || b > 10 || b < -10) {
         document.getElementById("lineal").value = "";
     }
-    if (isNaN(c) || c == "" || c > 10 || c < -10){
+    if (isNaN(c) || c == "" || c > 10 || c < -10) {
         document.getElementById("constante").value = "";
     }
 
