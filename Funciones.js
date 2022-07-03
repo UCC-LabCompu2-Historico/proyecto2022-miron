@@ -11,6 +11,10 @@ function Comprobar() {
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
 
+    canvas.width = canvas.width;
+
+    Dibujarcuadriculado();
+
     if (a.includes(",")) {
         a = a.replace(",", ".");
     } else {
@@ -26,24 +30,16 @@ function Comprobar() {
     if (isNaN(a) || isNaN(b) || isNaN(c)) {
         alert("Al menos uno de los términos ingresados no corresponde a un valor numérico.");
         flag = false;
-        canvas.width = canvas.width;
-        Dibujarcuadriculado();
     } else {
         if (a == "" || b == "" || c == "") {
             alert("No puede quedar en blanco ningún campo a ingresar.");
             flag = false;
-            canvas.width = canvas.width;
-            Dibujarcuadriculado();
         } else {
             if (a >= 10 || b >= 10 || c >= 10 || a <= -10 || b <= -10 || c <= -10) {
                 alert("Ingrese un valor mayor a -10 o menor a 10 para cada campo.");
                 flag = false;
-                canvas.width = canvas.width;
-                Dibujarcuadriculado();
             } else {
                 Raices();
-                canvas.width = canvas.width;
-                Dibujarcuadriculado();
                 Dibujarfuncion();
             }
         }
