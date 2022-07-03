@@ -4,7 +4,7 @@
  * @return Ante cualquier error, retorna un mensaje de alerta para el usuario, deja los campos en blanco y limpia el canvas. Si no hay error, ejecuta la función de cálculo de raíces y gráfica de funciones.
  */
 function Comprobar() {
-    let a, b, c, x1, x2;
+    let a, b, c;
     let flag = true;
     let canvas = document.getElementById("graficadora");
     a = document.getElementById("cuadratica").value;
@@ -27,30 +27,30 @@ function Comprobar() {
         alert("Al menos uno de los términos ingresados no corresponde a un valor numérico.");
         flag = false;
         canvas.width = canvas.width;
-        dibujarcuadriculado();
+        Dibujarcuadriculado();
     } else {
         if (a == "" || b == "" || c == "") {
             alert("No puede quedar en blanco ningún campo a ingresar.");
             flag = false;
             canvas.width = canvas.width;
-            dibujarcuadriculado();
+            Dibujarcuadriculado();
         } else {
-            if (a > 10 || b > 10 || c > 10 || a < -10 || b < -10 || c < -10) {
-                alert("Ingrese un valor entre -10 y 10 para cada campo.");
+            if (a >= 10 || b >= 10 || c >= 10 || a <= -10 || b <= -10 || c <= -10) {
+                alert("Ingrese un valor mayor a -10 o menor a 10 para cada campo.");
                 flag = false;
                 canvas.width = canvas.width;
-                dibujarcuadriculado();
+                Dibujarcuadriculado();
             } else {
                 Raices();
                 canvas.width = canvas.width;
-                dibujarcuadriculado();
-                dibujarfuncion();
+                Dibujarcuadriculado();
+                Dibujarfuncion();
             }
         }
     }
 
     if (flag == false) {
-        blanquearCampo();
+        Blanquearcampo();
     }
 }
 
@@ -62,7 +62,6 @@ function Comprobar() {
 function Raices() {
     let a, b, c;
     var x1, x2;
-    let cont = 0;
     a = document.getElementById("cuadratica").value;
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
@@ -101,10 +100,10 @@ function Raices() {
 
 /**
  * Función que grafica el cuadriculado de la calculadora.
- * @method dibujarcuadriculado.
+ * @method Dibujarcuadriculado.
  * @return dibuja el cuadriculado sobre el canvas respetando una separación de 20 píxeles, junto con el nombre de los ejes y los valores de los mismos.
  */
-function dibujarcuadriculado() {
+function Dibujarcuadriculado() {
     let canvas = document.getElementById("graficadora");
     let ctx = canvas.getContext("2d");
     let cont = -14;
@@ -113,7 +112,6 @@ function dibujarcuadriculado() {
     let Alturamax = canvas.height;
 
     //Lineas horizontales.
-
     for (let i = 20; i < Alturamax;) {
         ctx.beginPath();
         ctx.moveTo(0, i);
@@ -125,7 +123,6 @@ function dibujarcuadriculado() {
     }
 
     //Lineas verticales.
-
     for (let i = 20; i < Anchomax;) {
         ctx.beginPath();
         ctx.moveTo(i, 0);
@@ -197,10 +194,10 @@ function dibujarcuadriculado() {
 
 /**
  * Función que grafica exclusivamente las funciones.
- * @method dibujarfuncion.
+ * @method Dibujarfuncion.
  * @return grafica la función dependiendo de los datos que se ingresan. Si se le pasa solo el valor de c, grafica el valor de y constante, pero si le pasamos valores b y c nos grafica una función lineal. Por último, si pasamos valores a, b y c nos grafica una parábola.
  */
-function dibujarfuncion() {
+function Dibujarfuncion() {
     let a, b, c, y1, y2;
     let i = -15;
     let canvas = document.getElementById("graficadora");
@@ -271,22 +268,22 @@ function dibujarfuncion() {
 
 /**
  * Función que blanquea los campos incorrectos.
- * @method blanquearCampo.
+ * @method Blanquearcampo.
  * @return al introducirse un valor para a, b o c, si alguno de ellos es incorrecto, lo blanquea, y en caso contrario, lo deja como estaba.
  */
-function blanquearCampo() {
+function Blanquearcampo() {
     let a, b, c;
     a = document.getElementById("cuadratica").value;
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
 
-    if (isNaN(a) || a == "" || a > 10 || a < -10) {
+    if (isNaN(a) || a == "" || a >= 10 || a <= -10) {
         document.getElementById("cuadratica").value = "";
     }
-    if (isNaN(b) || b == "" || b > 10 || b < -10) {
+    if (isNaN(b) || b == "" || b >= 10 || b <= -10) {
         document.getElementById("lineal").value = "";
     }
-    if (isNaN(c) || c == "" || c > 10 || c < -10) {
+    if (isNaN(c) || c == "" || c >= 10 || c <= -10) {
         document.getElementById("constante").value = "";
     }
 
