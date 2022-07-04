@@ -263,13 +263,13 @@ function Blanquearcampo() {
     b = document.getElementById("lineal").value;
     c = document.getElementById("constante").value;
 
-    if (isNaN(a) || a == "" || a >= 10 || a <= -10) {
+    if (a == "" || a >= 10 || a <= -10) {
         document.getElementById("cuadratica").value = "";
     }
-    if (isNaN(b) || b == "" || b >= 10 || b <= -10) {
+    if (b == "" || b >= 10 || b <= -10) {
         document.getElementById("lineal").value = "";
     }
-    if (isNaN(c) || c == "" || c >= 10 || c <= -10) {
+    if (c == "" || c >= 10 || c <= -10) {
         document.getElementById("constante").value = "";
     }
 
