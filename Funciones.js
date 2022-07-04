@@ -17,31 +17,24 @@ function Comprobar() {
 
     if (a.includes(",")) {
         a = a.replace(",", ".");
-    } else {
-        if (b.includes(",")) {
-            b = b.replace(",", ".");
-        } else {
-            if (c.includes(",")) {
-                c = c.replace(",", ".");
-            }
-        }
+    }
+    if (b.includes(",")) {
+        b = b.replace(",", ".");
+    }
+    if (c.includes(",")) {
+        c = c.replace(",", ".");
     }
 
-    if (isNaN(a) || isNaN(b) || isNaN(c)) {
-        alert("Al menos uno de los términos ingresados no corresponde a un valor numérico.");
+    if (a == "" || b == "" || c == "") {
+        alert("No puede quedar en blanco ningún campo a ingresar.");
         flag = false;
     } else {
-        if (a == "" || b == "" || c == "") {
-            alert("No puede quedar en blanco ningún campo a ingresar.");
+        if (a >= 10 || b >= 10 || c >= 10 || a <= -10 || b <= -10 || c <= -10) {
+            alert("Ingrese un valor menor a '10' o mayor a '-10' para cada campo.");
             flag = false;
         } else {
-            if (a >= 10 || b >= 10 || c >= 10 || a <= -10 || b <= -10 || c <= -10) {
-                alert("Ingrese un valor mayor a -10 o menor a 10 para cada campo.");
-                flag = false;
-            } else {
-                Raices();
-                Dibujarfuncion();
-            }
+            Raices();
+            Dibujarfuncion();
         }
     }
 
@@ -58,9 +51,9 @@ function Comprobar() {
 function Raices() {
     let a, b, c;
     let x1, x2;
-    a = document.getElementById("cuadratica").value;
-    b = document.getElementById("lineal").value;
-    c = document.getElementById("constante").value;
+    a = Number(document.getElementById("cuadratica").value);
+    b = Number(document.getElementById("lineal").value);
+    c = Number(document.getElementById("constante").value);
 
     if (a == 0 && b == 0 && c == 0) {
         x1 = "Todos los reales.";
@@ -87,9 +80,6 @@ function Raices() {
         }
     }
 
-    document.getElementById("cuadratica").value = a;
-    document.getElementById("lineal").value = b;
-    document.getElementById("constante").value = c;
     document.getElementById("raiz1").innerHTML = x1;
     document.getElementById("raiz2").innerHTML = x2;
 }
@@ -283,6 +273,6 @@ function Blanquearcampo() {
         document.getElementById("constante").value = "";
     }
 
-    document.getElementById("raiz1").value = "";
-    document.getElementById("raiz2").value = "";
+    document.getElementById("raiz1").innerHTML = "";
+    document.getElementById("raiz2").innerHTML = "";
 }
