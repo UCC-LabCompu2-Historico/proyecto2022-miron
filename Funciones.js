@@ -195,7 +195,7 @@ function Dibujarfuncion() {
     let Anchomax = canvas.width;
     let Alturamax = canvas.height;
 
-    if (a == 0 && b == 0 && (c != 0 || c == 0)) {
+    if (a == 0 && b == 0 && (c == 0 || c != 0)) {
         setInterval(function () {
             if (i <= 14.9) {
                 y1 = Math.round((c) * 100) / 100;
@@ -212,7 +212,7 @@ function Dibujarfuncion() {
             }
         }, 5)
     } else {
-        if (a == 0 && b != 0 && (c != 0 || c == 0)) {
+        if (a == 0 && b != 0 && (c == 0 || c != 0)) {
             setInterval(function () {
                 if (i <= 14.9) {
                     y1 = Math.round((b * (i) + c) * 100) / 100;
