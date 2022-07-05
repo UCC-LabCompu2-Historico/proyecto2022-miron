@@ -68,7 +68,7 @@ function Raices() {
                 x2 = " - ";
             } else {
                 let det;
-                det = b * b - 4 * a * c;
+                det = Math.pow(b, 2) - 4 * a * c;
                 if (det < 0) {
                     x1 = "Raíces complejas.";
                     x2 = "Raíces complejas.";
