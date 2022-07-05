@@ -195,7 +195,7 @@ function Dibujarfuncion() {
     let Anchomax = canvas.width;
     let Alturamax = canvas.height;
 
-    if (a == 0 && b == 0 && c != 0) {
+    if (a == 0 && b == 0 && (c != 0 || c == 0)) {
         setInterval(function () {
             if (i <= 14.9) {
                 y1 = Math.round((c) * 100) / 100;
